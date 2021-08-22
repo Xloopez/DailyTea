@@ -1,18 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View, Platform } from 'react-native';
-
-
+import { StyleSheet, Text, View, Image } from 'react-native';
 
 
 
 const Card = () => {
+    let img = require('../images/news-img.jpg') 
 
 
     return (
         <View style={styles.card}>
 
             <View style={styles.imageWrapper}>
-
+                <Image 
+                source={{uri: 'https://img.freepik.com/free-vector/news-concept-landing-page_52683-20522.jpg?size=626&ext=jpg'}}
+                //source={img} 
+                style={styles.image}
+                /> 
             </View>
 
             <View style={styles.titleWrapper}>
@@ -46,9 +49,24 @@ const styles = StyleSheet.create({
         shadowRadius: 8,
         elevation: 5
     },
-    imageWrapper: {},
-    titleWrapper: {},
-    descriptionWrapper: {}
+    imageWrapper: {
+        width: '100%',
+        height: '60%',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+        overflow: 'hidden'
+    },
+    image: {
+        height: '100%',
+        width: '100%'
+    },
+    titleWrapper: {
+        height: '10%',
+        paddingHorizontal: 15
+    },
+    descriptionWrapper: {
+        paddingHorizontal: 15
+    }
     
 });
 
