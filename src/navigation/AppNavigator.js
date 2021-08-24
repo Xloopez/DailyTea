@@ -40,18 +40,18 @@ function FavoriteNavigator() {
 function AppNavigator() {
     return (
         <NavigationContainer>
-            <Tabs.Navigator screenOptions={(route) => ({
+            <Tabs.Navigator screenOptions={({route}) => ({
                 tabBarIcon: () => {
                     let iconName;
                     if(route.name == "Home") {
                         iconName = "home"
-                    } else if (route.name == "favorites"){
-                        iconName= "favorite"
+                    } else if (route.name == "Favorite"){
+                        iconName= 'favorite'
                     }
-                    return <MaterialIcons name={iconName} size={24} /> 
+                    return <MaterialIcons name={iconName} color="#111a27" size={24} /> 
                 }
             })}>
-                <Tabs.Screen name="Homes" component={HomeNavigator} />
+                <Tabs.Screen name="Home" component={HomeNavigator} />
                 <Tabs.Screen name="Favorite" component={FavoriteNavigator} /> 
             </Tabs.Navigator>
         </NavigationContainer>
