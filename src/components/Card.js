@@ -24,7 +24,7 @@ const Card = () => {
                     Default Title
                 </Text>
 
-                <MaterialIcons name="favorite-border" color="#111a27" size="24"/>
+                <MaterialIcons name="favorite-border" color="#111a27" size={24}/>
             </View>
 
             <View style={styles.descriptionWrapper}>
