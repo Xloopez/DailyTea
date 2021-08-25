@@ -14,24 +14,20 @@ const Card = props => {
 
                 <View style={styles.imageWrapper}>
                     <Image
-                        source={{ uri: 'https://img.freepik.com/free-vector/news-concept-landing-page_52683-20522.jpg?size=626&ext=jpg' }}
+                        source={{ uri: props.image}}
                         //source={img} 
                         style={styles.image}
                     />
                 </View>
 
                 <View style={styles.titleWrapper}>
-                    <Text style={styles.title}>
-                        Default Title
-                    </Text>
+                    <Text style={styles.title}>{props.title}</Text>
 
                     <MaterialIcons name="favorite-border" color="#111a27" size={24} />
                 </View>
 
                 <View style={styles.descriptionWrapper}>
-                    <Text style={styles.description}>
-                        Default Description
-                    </Text>
+                    <Text style={styles.description}>{props.description}</Text>
 
                 </View>
 

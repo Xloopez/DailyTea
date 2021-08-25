@@ -1,3 +1,4 @@
+import { FETCH_ARTICLES } from "../actions/newsAction";
 
 const initialState = {
     //define the states that we are going to use in ur app
