@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import * as newsAction from '../redux/actions/newsAction';
 
@@ -10,6 +11,10 @@ const Card = props => {
     let img = require('../images/news-img.jpg')
     //console.log(props)
     const dispatch = useDispatch();
+
+    //gives us an array of times that exists in favorites 
+    //some will return true or false depending if item exists in favorites
+    const isFav = useSelector(state => state.news.favorites.some(article => article.url === props.url));
 
     return (
         <TouchableOpacity onPress={() => {props.navigation.navigate('NewsDetails')}}>
@@ -29,7 +34,7 @@ const Card = props => {
                     </Text>
 
                     <MaterialIcons 
-                        name="favorite-border" 
+                        name={isFav ? 'favorite' : 'favorite-border'}
                         color="#111a27" size={24} 
                         onPress={() => {
                             dispatch(newsAction.toggleFavorites(props.url))
