@@ -1,8 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import * as newsAction from '../redux/actions/newsAction';
 
@@ -17,12 +16,16 @@ const Card = props => {
     const isFav = useSelector(state => state.news.favorites.some(article => article.url === props.url));
 
     return (
-        <TouchableOpacity onPress={() => {props.navigation.navigate('NewsDetails')}}>
+        <TouchableOpacity onPress={() => {
+            props.navigation.navigate('NewsDetails', {
+                articleUrl: props.url
+            })
+            }}>
             <View style={styles.card}>
 
                 <View style={styles.imageWrapper}>
                     <Image
-                        source={{ uri: props.image}}
+                        source={{ uri: props.image ? props.image : 'https://thumbs.dreamstime.com/b/news-woodn-dice-depicting-letters-bundle-small-newspapers-leaning-left-dice-34802664.jpg'}}
                         //source={img} 
                         style={styles.image}
                     />
@@ -30,7 +33,7 @@ const Card = props => {
 
                 <View style={styles.titleWrapper}>
                     <Text style={styles.title}>
-                        {props.title.length > 22 ? props.title.slice(0, 22) + '...' : props.title}
+                        {props.title && props.title.length > 22 ? props.title.slice(0, 22) + '...' : props.title}
                     </Text>
 
                     <MaterialIcons 
@@ -44,7 +47,7 @@ const Card = props => {
 
                 <View style={styles.descriptionWrapper}>
                     <Text style={styles.description}>
-                        {props.description.length > 170 ? props.description.slice(0, 170) + '...' : props.description}
+                        {props.description && props.description.length > 170 ? props.description.slice(0, 170) + '...' : props.description}
                     </Text>
                 </View>
 
