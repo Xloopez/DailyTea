@@ -21,14 +21,17 @@ const Card = props => {
                 </View>
 
                 <View style={styles.titleWrapper}>
-                    <Text style={styles.title}>{props.title}</Text>
+                    <Text style={styles.title}>
+                        {props.title.length > 22 ? props.title.slice(0, 22) + '...' : props.title}
+                    </Text>
 
                     <MaterialIcons name="favorite-border" color="#111a27" size={24} />
                 </View>
 
                 <View style={styles.descriptionWrapper}>
-                    <Text style={styles.description}>{props.description}</Text>
-
+                    <Text style={styles.description}>
+                        {props.description.length > 170 ? props.description.slice(0, 170) + '...' : props.description}
+                    </Text>
                 </View>
 
             </View>

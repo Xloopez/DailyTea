@@ -17,6 +17,7 @@ const Drawer = createDrawerNavigator();
 function HomeNavigator() {
     return (
         <Stack.Navigator>
+
             <Stack.Screen
                 name="NewsList"
                 component={NewsListScreen}

@@ -1,5 +1,5 @@
 export const FETCH_ARTICLES = 'FECTH_ARTICLES';
-export const ADD_FAVORITES = 'ADD_FAVORITES';
+export const TOGGLE_FAVORITES = 'TOGGLE_FAVORITES';
 
 export const fecthArticles = () => {
     return async dispatch => {
@@ -12,5 +12,16 @@ export const fecthArticles = () => {
             payload: resultData
 
         });
+    }
+}
+
+export const toggleFavorites = url => {
+    //We need the id to determine witch item it is 
+    //our unic property is our URL
+
+
+    return {
+        type: TOGGLE_FAVORITES,
+        payload: url
     }
 }
