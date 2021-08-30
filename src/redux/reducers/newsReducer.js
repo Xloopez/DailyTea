@@ -19,7 +19,7 @@ export default function(state = initialState, action) {
             //Add or remove item from favorite 
             //if item exist this returns the index 
             //if item does not exist returns -1
-            const index = state.favorites.findIndex(article => article.url === action.payload);
+            const index = state.favorites.findIndex(article => article.url === action.payload)
 
             if (index >= 0) {
                 //item exists in favorites 
@@ -31,16 +31,16 @@ export default function(state = initialState, action) {
 
                 return {
                     ...state,
-                    favorites: favorites
+                    favorites
                 }
             } else {
                 //item does not exist in favorite 
                 //get item that we want to add - exists in list of articles 
-                const article = state.articles.find(article => article.url === action.payload);
+                const article = state.articles.articles.find(article => article.url === action.payload)
 
                 return {
                     ...state,
-                    favorites: state.favorites.concat //concat adds our article to array of favorites
+                    favorites: state.favorites.concat(article) //concat adds our article to array of favorites
                 }
             }
     }

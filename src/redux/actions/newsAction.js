@@ -17,7 +17,7 @@ export const fecthArticles = () => {
 
 export const toggleFavorites = url => {
     //We need the id to determine witch item it is 
-    //our unic property is our URL
+    //our uniq property is our URL
 
 
     return {
